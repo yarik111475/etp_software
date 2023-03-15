@@ -14,6 +14,7 @@ std::shared_ptr<Gphm::HttpServer> http_server_ptr_ {nullptr};
 
 int main(int argc, char *argv[])
 {
+#if defined (Q_OS_LINUX)
     //create signal handler lambda
     const auto signal_handler{[](int signum){
             exit(EXIT_SUCCESS);
@@ -23,6 +24,7 @@ int main(int argc, char *argv[])
     signal(SIGINT, signal_handler);
     signal(SIGKILL, signal_handler);
     signal(SIGHUP, signal_handler);
+#endif
 
     QCoreApplication a(argc, argv);
     http_server_ptr_.reset(new Gphm::HttpServer);
