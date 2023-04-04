@@ -15,6 +15,13 @@ set(PROJECT_SOURCES
     main.cpp
     network/HttpServer.h
     network/HttpServer.cpp
+
+    packages/Attachment.h
+    packages/BhaRun.h
+    packages/CementJob.h
+    packages/CementJobEvaluation.h
+    packages/Channel.h
+    packages/ChannelSet.h
 )
 
 find_package(Qt5 COMPONENTS Core REQUIRED)

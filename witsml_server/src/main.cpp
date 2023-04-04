@@ -1,7 +1,7 @@
-#include <memory>
 #include <iostream>
 #include <QtGlobal>
 #include <QHostAddress>
+#include <QSharedPointer>
 #include <QCoreApplication>
 
 #if defined(Q_OS_LINUX)
@@ -10,7 +10,7 @@
 
 #include "network/HttpServer.h"
 
-std::shared_ptr<Gphm::HttpServer> http_server_ptr_ {nullptr};
+QSharedPointer<HttpServer> http_server_ptr_ {nullptr};
 
 int main(int argc, char *argv[])
 {
@@ -27,8 +27,8 @@ int main(int argc, char *argv[])
 #endif
 
     QCoreApplication a(argc, argv);
-    http_server_ptr_.reset(new Gphm::HttpServer);
-    const bool& success {http_server_ptr_->listen(QHostAddress::Any,8080)};
+    http_server_ptr_.reset(new HttpServer("localhost",8080));
+    const bool& success {http_server_ptr_->start_listen()};
     if(!success){
         return EXIT_FAILURE;
     }

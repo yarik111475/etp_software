@@ -3,33 +3,35 @@
 
 #include <map>
 #include <memory>
-#include <QTcpServer>
+#include <QObject>
+#include <QSharedPointer>
 
 class QString;
 class QTcpServer;
 class QTcpSocket;
 class QHostAddress;
 
-namespace Gphm
-{
-class HttpServer:public QTcpServer
+class HttpServer:public QObject
 {
     Q_OBJECT
 private:
-    std::map<qintptr,std::shared_ptr<QTcpSocket>> socket_map_ ;
+    QString host_ {};
+    int port_ {};
+    QString error_str_ {};
+    QSharedPointer<QTcpServer> tcp_server_ptr_ {nullptr};
+    std::map<qintptr,QTcpSocket*> socket_map_ {};
 
 public:
-    explicit HttpServer(QObject* parent=nullptr);
+    explicit HttpServer(const QString& host, int port,QObject* parent=nullptr);
     virtual ~HttpServer()=default;
+    bool start_listen();
+    void stop_listen();
 
-protected:
-    virtual void incomingConnection(qintptr socketDescriptor);
 
 private slots:
     void slot_ready_read();
     void slot_disconnected();
+    void slot_new_connection();
 };
-}
-
 
 #endif // HTTPSERVER_H
