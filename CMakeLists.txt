@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-set(PROJECT_NAME wits_software)
+set(PROJECT_NAME witsml_software)
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -33,6 +33,6 @@ if(WIN32)
     add_definitions(-D_WIN32_WINNT=0x0601)
 endif()
 
-add_subdirectory(wits_server/src)
-add_subdirectory(wits_client/src)
+add_subdirectory(witsml_server/src)
+add_subdirectory(witsml_client/src)
 add_subdirectory(lib/3rdparty/spdlog-1.9.2)

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-set(PROJECT_NAME wits_server)
+set(PROJECT_NAME witsml_server)
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -13,8 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROJECT_SOURCES
     main.cpp
-    network/http_server.h
-    network/http_server.cpp
+    network/HttpServer.h
+    network/HttpServer.cpp
 )
 
 find_package(Qt5 COMPONENTS Core REQUIRED)
