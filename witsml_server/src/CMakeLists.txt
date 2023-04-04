@@ -16,12 +16,27 @@ set(PROJECT_SOURCES
     network/HttpServer.h
     network/HttpServer.cpp
 
-    packages/Attachment.h
-    packages/BhaRun.h
-    packages/CementJob.h
-    packages/CementJobEvaluation.h
-    packages/Channel.h
-    packages/ChannelSet.h
+    core/messages/Ping.h
+    core/messages/Ping.cpp
+    core/messages/Pong.h
+    core/messages/Pong.cpp
+    core/messages/Authorize.h
+    core/messages/Authorize.cpp
+    core/messages/Acknowledge.h
+    core/messages/Acknowledge.cpp
+    core/messages/OpenSession.h
+    core/messages/OpenSession.cpp
+    core/messages/CloseSession.h
+    core/messages/CloseSession.cpp
+    core/messages/RequestSession.h
+    core/messages/RequestSession.cpp
+    core/messages/ProtocolException.h
+    core/messages/ProtocolException.cpp
+    core/messages/AuthorizeResponse.h
+    core/messages/AuthorizeResponse.cpp
+
+    core/factories/MessageFactory.h
+    core/factories/MessageFactory.cpp
 )
 
 find_package(Qt5 COMPONENTS Core REQUIRED)
