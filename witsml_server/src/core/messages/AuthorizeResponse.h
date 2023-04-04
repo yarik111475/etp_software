@@ -3,10 +3,11 @@
 
 #include <QVector>
 #include <QString>
+#include "Message.h"
 
 namespace Core
 {
-class AuthorizeResponse
+class AuthorizeResponse:public Message
 {
 public:
     AuthorizeResponse();

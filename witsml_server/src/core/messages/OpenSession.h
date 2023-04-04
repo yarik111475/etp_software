@@ -6,10 +6,11 @@
 #include <QString>
 #include <QVector>
 #include <QVariant>
+#include "Message.h"
 
 namespace Core
 {
-class OpenSession
+class OpenSession:public Message
 {
 public:
     OpenSession();

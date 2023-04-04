@@ -1,9 +1,11 @@
 #ifndef PONG_H
 #define PONG_H
 
+#include "Message.h"
+
 namespace Core
 {
-class Pong
+class Pong:public Message
 {
 public:
     Pong();

@@ -4,10 +4,11 @@
 #include <QMap>
 #include <QString>
 #include <QVariant>
+#include "Message.h"
 
 namespace Core
 {
-class ProtocolException
+class ProtocolException:public Message
 {
 public:
     ProtocolException();

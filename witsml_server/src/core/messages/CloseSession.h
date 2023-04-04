@@ -2,10 +2,11 @@
 #define CLOSESESSION_H
 
 #include <QString>
+#include "Message.h"
 
 namespace Core
 {
-class CloseSession
+class CloseSession:public Message
 {
 public:
     CloseSession();

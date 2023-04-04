@@ -2,10 +2,11 @@
 #define AUTHORIZE_H
 
 #include <QString>
+#include "Message.h"
 
 namespace Core
 {
-class Authorize
+class Authorize:public Message
 {
 public:
     Authorize();

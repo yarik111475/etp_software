@@ -1,9 +1,11 @@
 #ifndef PING_H
 #define PING_H
 
+#include "Message.h"
+
 namespace Core
 {
-class Ping
+class Ping:public Message
 {
 public:
     Ping();

@@ -16,6 +16,8 @@ set(PROJECT_SOURCES
     network/HttpServer.h
     network/HttpServer.cpp
 
+    core/messages/Message.h
+    core/messages/Message.cpp
     core/messages/Ping.h
     core/messages/Ping.cpp
     core/messages/Pong.h

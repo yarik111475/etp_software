@@ -1,9 +1,11 @@
 #ifndef ACKNOWLEDGE_H
 #define ACKNOWLEDGE_H
 
+#include "Message.h"
+
 namespace Core
 {
-class Acknowledge
+class Acknowledge:public Message
 {
 public:
     Acknowledge();

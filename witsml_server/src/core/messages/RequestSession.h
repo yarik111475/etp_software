@@ -6,10 +6,11 @@
 #include <QString>
 #include <QVector>
 #include <QVariant>
+#include "Message.h"
 
 namespace Core
 {
-class RequestSession
+class RequestSession:public Message
 {
 public:
     RequestSession();
