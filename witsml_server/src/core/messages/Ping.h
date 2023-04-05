@@ -10,7 +10,7 @@ class Ping:public Message
 public:
     Ping()=default;
     virtual ~Ping()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     long currentDateTime_ {};
 };

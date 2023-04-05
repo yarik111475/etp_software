@@ -1,6 +1,6 @@
 #include "Acknowledge.h"
 
-int Core::Acknowledge::messageType()
+Core::Message::Type Core::Acknowledge::messageType()
 {
-    return 1001;
+    return Message::ACKNOWLEDGE;
 }

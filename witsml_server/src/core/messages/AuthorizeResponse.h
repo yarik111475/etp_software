@@ -12,7 +12,7 @@ class AuthorizeResponse:public Message
 public:
     AuthorizeResponse()=default;
     virtual ~AuthorizeResponse()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     bool success_ {};
     QVector<QString> challenges_ {};

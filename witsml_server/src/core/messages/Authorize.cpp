@@ -1,6 +1,6 @@
 #include "Authorize.h"
 
-int Core::Authorize::messageType()
+Core::Message::Type Core::Authorize::messageType()
 {
-    return 6;
+    return Message::AUTHORIZE;
 }

@@ -1,6 +1,6 @@
 #include "RequestSession.h"
 
-int Core::RequestSession::messageType()
+Core::Message::Type Core::RequestSession::messageType()
 {
-    return 1;
+    return Message::REQUEST_SESSION;
 }

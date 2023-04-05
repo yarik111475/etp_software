@@ -3,6 +3,7 @@
 
 #include <QJsonObject>
 #include <QSharedPointer>
+#include "core/messages/Message.h"
 
 namespace Core
 {
@@ -17,7 +18,7 @@ public:
     MessageFactory(const MessageFactory& other)=delete;
     MessageFactory& operator=(const MessageFactory& other)=delete;
 
-    static QSharedPointer<Message> create(int type, const QJsonObject& params);
+    static QSharedPointer<Message> create(Message::Type type, const QJsonObject& params);
 };
 }
 

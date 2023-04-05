@@ -13,7 +13,7 @@ class ProtocolException:public Message
 public:
     ProtocolException()=default;
     virtual ~ProtocolException()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     //TODO correct type later
     QVariant error_ {};

@@ -15,7 +15,7 @@ class OpenSession:public Message
 public:
     OpenSession()=default;
     virtual ~OpenSession()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     QString applicationName_ {};
     QString applicationVersion_ {};

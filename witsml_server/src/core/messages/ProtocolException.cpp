@@ -1,6 +1,6 @@
 #include "ProtocolException.h"
 
-int Core::ProtocolException::messageType()
+Core::Message::Type Core::ProtocolException::messageType()
 {
-    return 1000;
+    return Message::PROTOCOL_EXCEPTION;
 }

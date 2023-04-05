@@ -10,26 +10,26 @@
 #include "core/messages/AuthorizeResponse.h"
 #include "core/messages/ProtocolException.h"
 
-QSharedPointer<Core::Message> Core::MessageFactory::create(int type, const QJsonObject &params)
+QSharedPointer<Core::Message> Core::MessageFactory::create(Message::Type type, const QJsonObject &params)
 {
     switch(type){
-    case 1:
+    case Message::REQUEST_SESSION:
         return QSharedPointer<Message>(new RequestSession);
-    case 2:
+    case Message::OPEN_SESSION:
         return QSharedPointer<Message>(new OpenSession);
-    case 5:
+    case Message::CLOSE_SESSION:
         return QSharedPointer<Message>(new CloseSession);
-    case 6:
+    case Message::AUTHORIZE:
         return QSharedPointer<Message>(new Authorize);
-    case 7:
+    case Message::AUTHORISE_RESPONSE:
         return QSharedPointer<Message>(new AuthorizeResponse);
-    case 8:
+    case Message::PING:
         return QSharedPointer<Message>(new Ping);
-    case 9:
+    case Message::PONG:
         return QSharedPointer<Message>(new Pong);
-    case 1000:
+    case Message::PROTOCOL_EXCEPTION:
         return QSharedPointer<Message>(new ProtocolException);
-    case 1001:
+    case Message::ACKNOWLEDGE:
         return QSharedPointer<Message>(new Acknowledge);
     default:
         return nullptr;

@@ -1,6 +1,6 @@
 #include "CloseSession.h"
 
-int Core::CloseSession::messageType()
+Core::Message::Type Core::CloseSession::messageType()
 {
-    return 5;
+    return Message::CLOSE_SESSION;
 }

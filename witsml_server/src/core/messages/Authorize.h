@@ -11,7 +11,7 @@ class Authorize:public Message
 public:
     Authorize()=default;
     virtual ~Authorize()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     QString authorization_ {};
     QString supplementalAuthorization_ {};

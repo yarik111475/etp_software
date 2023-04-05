@@ -15,7 +15,7 @@ class RequestSession:public Message
 public:
     RequestSession()=default;
     virtual ~RequestSession()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     QString applicationName_ {};
     QString applicationVersion_ {};

@@ -1,6 +1,6 @@
 #include "OpenSession.h"
 
-int Core::OpenSession::messageType()
+Core::Message::Type Core::OpenSession::messageType()
 {
-    return 2;
+    return Message::OPEN_SESSION;
 }

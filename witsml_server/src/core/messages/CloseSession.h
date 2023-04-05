@@ -11,7 +11,7 @@ class CloseSession:public Message
 public:
     CloseSession()=default;
     virtual ~CloseSession()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     QString reason_ {};
 };

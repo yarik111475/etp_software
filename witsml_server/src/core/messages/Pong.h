@@ -10,7 +10,7 @@ class Pong:public Message
 public:
     Pong()=default;
     virtual ~Pong()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 
     long currentDateTime_ {};
 };

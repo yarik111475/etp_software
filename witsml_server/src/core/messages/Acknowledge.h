@@ -10,7 +10,7 @@ class Acknowledge:public Message
 public:
     Acknowledge()=default;
     virtual ~Acknowledge()=default;
-    virtual int messageType()override;
+    virtual Type messageType()override;
 };
 }
 
