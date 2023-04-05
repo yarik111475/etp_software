@@ -1,6 +1,6 @@
 #include "Ping.h"
 
-Core::Ping::Ping()
+int Core::Ping::messageType()
 {
-
+    return 8;
 }

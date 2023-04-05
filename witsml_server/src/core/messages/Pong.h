@@ -8,8 +8,10 @@ namespace Core
 class Pong:public Message
 {
 public:
-    Pong();
-    const int messageType_ {9};
+    Pong()=default;
+    virtual ~Pong()=default;
+    virtual int messageType()override;
+
     long currentDateTime_ {};
 };
 }

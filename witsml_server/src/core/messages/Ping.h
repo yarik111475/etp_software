@@ -8,8 +8,10 @@ namespace Core
 class Ping:public Message
 {
 public:
-    Ping();
-    const int messageType_ {8};
+    Ping()=default;
+    virtual ~Ping()=default;
+    virtual int messageType()override;
+
     long currentDateTime_ {};
 };
 }

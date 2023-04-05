@@ -1,6 +1,6 @@
 #include "AuthorizeResponse.h"
 
-Core::AuthorizeResponse::AuthorizeResponse()
+int Core::AuthorizeResponse::messageType()
 {
-
+    return 7;
 }

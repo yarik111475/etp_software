@@ -10,8 +10,10 @@ namespace Core
 class AuthorizeResponse:public Message
 {
 public:
-    AuthorizeResponse();
-    const int messageType_ {7};
+    AuthorizeResponse()=default;
+    virtual ~AuthorizeResponse()=default;
+    virtual int messageType()override;
+
     bool success_ {};
     QVector<QString> challenges_ {};
 };

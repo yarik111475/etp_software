@@ -8,8 +8,9 @@ namespace Core
 class Acknowledge:public Message
 {
 public:
-    Acknowledge();
-    const int messageType_ {1001};
+    Acknowledge()=default;
+    virtual ~Acknowledge()=default;
+    virtual int messageType()override;
 };
 }
 

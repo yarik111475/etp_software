@@ -13,8 +13,10 @@ namespace Core
 class RequestSession:public Message
 {
 public:
-    RequestSession();
-    const int messageType_ {1};
+    RequestSession()=default;
+    virtual ~RequestSession()=default;
+    virtual int messageType()override;
+
     QString applicationName_ {};
     QString applicationVersion_ {};
     QUuid clientInstanceId_ {};

@@ -11,8 +11,9 @@ namespace Core
 class ProtocolException:public Message
 {
 public:
-    ProtocolException();
-    const int messageType_ {1000};
+    ProtocolException()=default;
+    virtual ~ProtocolException()=default;
+    virtual int messageType()override;
 
     //TODO correct type later
     QVariant error_ {};

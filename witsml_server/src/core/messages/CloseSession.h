@@ -9,8 +9,10 @@ namespace Core
 class CloseSession:public Message
 {
 public:
-    CloseSession();
-    const int messageType_ {5};
+    CloseSession()=default;
+    virtual ~CloseSession()=default;
+    virtual int messageType()override;
+
     QString reason_ {};
 };
 }

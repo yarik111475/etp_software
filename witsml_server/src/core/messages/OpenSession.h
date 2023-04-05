@@ -13,8 +13,10 @@ namespace Core
 class OpenSession:public Message
 {
 public:
-    OpenSession();
-    const int messageType_ {2};
+    OpenSession()=default;
+    virtual ~OpenSession()=default;
+    virtual int messageType()override;
+
     QString applicationName_ {};
     QString applicationVersion_ {};
     QUuid serverInstanceId_ {};

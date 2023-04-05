@@ -1,6 +1,6 @@
 #include "Pong.h"
 
-Core::Pong::Pong()
+int Core::Pong::messageType()
 {
-
+    return 9;
 }

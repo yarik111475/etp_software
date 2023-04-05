@@ -9,8 +9,10 @@ namespace Core
 class Authorize:public Message
 {
 public:
-    Authorize();
-    const int messageType_ {6};
+    Authorize()=default;
+    virtual ~Authorize()=default;
+    virtual int messageType()override;
+
     QString authorization_ {};
     QString supplementalAuthorization_ {};
 };

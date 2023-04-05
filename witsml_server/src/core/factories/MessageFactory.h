@@ -1,12 +1,23 @@
 #ifndef MESSAGEFACTORY_H
 #define MESSAGEFACTORY_H
 
+#include <QJsonObject>
+#include <QSharedPointer>
+
 namespace Core
 {
+class Message;
+
 class MessageFactory
 {
 public:
-    MessageFactory();
+    MessageFactory()=default;
+    ~MessageFactory()=default;
+
+    MessageFactory(const MessageFactory& other)=delete;
+    MessageFactory& operator=(const MessageFactory& other)=delete;
+
+    static QSharedPointer<Message> create(int type, const QJsonObject& params);
 };
 }
 
