@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 3.14)
-set(PROJECT_NAME witsml_software)
+set(PROJECT_NAME etp_software)
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(ETP_COMMON_INCLUDE_DIR
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/etp_common/src
+    )
 
 #spdlog
 set(SPDLOG_MASTER_PROJECT OFF)
@@ -33,6 +37,7 @@ if(WIN32)
     add_definitions(-D_WIN32_WINNT=0x0601)
 endif()
 
-add_subdirectory(witsml_server/src)
-add_subdirectory(witsml_client/src)
+add_subdirectory(etp_server/src)
+add_subdirectory(etp_client/src)
+add_subdirectory(lib/etp_common/src)
 add_subdirectory(lib/3rdparty/spdlog-1.9.2)
