@@ -1,6 +1,16 @@
 #include "Authorize.h"
 
-Core::Message::Type Core::Authorize::messageType()
+Message::Type Authorize::messageType()
 {
     return Message::AUTHORIZE;
+}
+
+QString Authorize::to_xml()
+{
+
+}
+
+QString Authorize::to_json()
+{
+
 }

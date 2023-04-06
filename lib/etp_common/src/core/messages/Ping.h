@@ -3,17 +3,16 @@
 
 #include "Message.h"
 
-namespace Core
-{
 class Ping:public Message
 {
 public:
     Ping()=default;
     virtual ~Ping()=default;
     virtual Type messageType()override;
+    virtual QString to_xml()override;
+    virtual QString to_json()override;
 
     long currentDateTime_ {};
 };
-}
 
 #endif // PING_H

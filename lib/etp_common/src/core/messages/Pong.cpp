@@ -1,6 +1,16 @@
 #include "Pong.h"
 
-Core::Message::Type Core::Pong::messageType()
+Message::Type Pong::messageType()
 {
     return Message::PONG;
+}
+
+QString Pong::to_xml()
+{
+
+}
+
+QString Pong::to_json()
+{
+
 }

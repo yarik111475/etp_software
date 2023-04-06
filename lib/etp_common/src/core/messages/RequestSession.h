@@ -8,14 +8,14 @@
 #include <QVariant>
 #include "Message.h"
 
-namespace Core
-{
 class RequestSession:public Message
 {
 public:
     RequestSession()=default;
     virtual ~RequestSession()=default;
     virtual Type messageType()override;
+    virtual QString to_xml()override;
+    virtual QString to_json()override;
 
     QString applicationName_ {};
     QString applicationVersion_ {};
@@ -35,6 +35,5 @@ public:
 
     bool serverAuthorizationRequired_ {};
 };
-}
 
 #endif // REQUESTSESSION_H

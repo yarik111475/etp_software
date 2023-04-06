@@ -1,6 +1,16 @@
 #include "RequestSession.h"
 
-Core::Message::Type Core::RequestSession::messageType()
+Message::Type RequestSession::messageType()
 {
     return Message::REQUEST_SESSION;
+}
+
+QString RequestSession::to_xml()
+{
+
+}
+
+QString RequestSession::to_json()
+{
+
 }

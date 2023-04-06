@@ -6,14 +6,14 @@
 #include <QVariant>
 #include "Message.h"
 
-namespace Core
-{
 class ProtocolException:public Message
 {
 public:
     ProtocolException()=default;
     virtual ~ProtocolException()=default;
     virtual Type messageType()override;
+    virtual QString to_xml()override;
+    virtual QString to_json()override;
 
     //TODO correct type later
     QVariant error_ {};
@@ -21,6 +21,5 @@ public:
     //TODO correct K, V later
     QMap<QString,QVariant> errors_ {};
 };
-}
 
 #endif // PROTOCOLEXCEPTION_H

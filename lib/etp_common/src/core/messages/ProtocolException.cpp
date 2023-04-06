@@ -1,6 +1,16 @@
 #include "ProtocolException.h"
 
-Core::Message::Type Core::ProtocolException::messageType()
+Message::Type ProtocolException::messageType()
 {
     return Message::PROTOCOL_EXCEPTION;
+}
+
+QString ProtocolException::to_xml()
+{
+
+}
+
+QString ProtocolException::to_json()
+{
+
 }

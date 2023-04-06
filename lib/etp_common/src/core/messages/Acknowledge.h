@@ -3,15 +3,14 @@
 
 #include "Message.h"
 
-namespace Core
-{
 class Acknowledge:public Message
 {
 public:
     Acknowledge()=default;
     virtual ~Acknowledge()=default;
     virtual Type messageType()override;
+    virtual QString to_xml()override;
+    virtual QString to_json()override;
 };
-}
 
 #endif // ACKNOWLEDGE_H

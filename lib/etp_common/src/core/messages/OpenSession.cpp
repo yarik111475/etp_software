@@ -1,6 +1,16 @@
 #include "OpenSession.h"
 
-Core::Message::Type Core::OpenSession::messageType()
+Message::Type OpenSession::messageType()
 {
     return Message::OPEN_SESSION;
+}
+
+QString OpenSession::to_xml()
+{
+
+}
+
+QString OpenSession::to_json()
+{
+
 }

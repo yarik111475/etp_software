@@ -5,8 +5,6 @@
 #include <QSharedPointer>
 #include "core/messages/Message.h"
 
-namespace Core
-{
 class Message;
 
 class MessageFactory
@@ -20,7 +18,5 @@ public:
 
     static QSharedPointer<Message> create(Message::Type type, const QJsonObject& params);
 };
-}
-
 
 #endif // MESSAGEFACTORY_H

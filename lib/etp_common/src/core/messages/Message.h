@@ -1,8 +1,8 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
-namespace Core
-{
+#include <QString>
+
 class Message
 {
 private:
@@ -30,8 +30,8 @@ public:
     Message();
     virtual ~Message()=default;
     virtual Type messageType()=0;
+    virtual QString to_xml()=0;
+    virtual QString to_json()=0;
 };
-}
-
 
 #endif // MESSAGE_H

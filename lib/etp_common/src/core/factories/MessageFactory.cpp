@@ -10,7 +10,7 @@
 #include "core/messages/AuthorizeResponse.h"
 #include "core/messages/ProtocolException.h"
 
-QSharedPointer<Core::Message> Core::MessageFactory::create(Message::Type type, const QJsonObject &params)
+QSharedPointer<Message> MessageFactory::create(Message::Type type, const QJsonObject &params)
 {
     switch(type){
     case Message::REQUEST_SESSION:
