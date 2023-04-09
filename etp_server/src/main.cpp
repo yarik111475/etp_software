@@ -27,11 +27,11 @@ int main(int argc, char *argv[])
 #endif
 
     QCoreApplication a(argc, argv);
-    etpserver_ptr_.reset(new EtpServer("localhost",8080));
+    etpserver_ptr_.reset(new EtpServer("localhost", 2324, nullptr));
     const bool& success {etpserver_ptr_->start_listen()};
     if(!success){
         return EXIT_FAILURE;
     }
-    std::cout<<"http server is listening now"<<std::endl;
+    std::cout<<"webserver is listening now"<<std::endl;
     return a.exec();
 }

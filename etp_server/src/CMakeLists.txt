@@ -17,11 +17,15 @@ set(PROJECT_SOURCES
     gui/MainWindow.cpp
     network/EtpServer.h
     network/EtpServer.cpp
+    network/EtpConnection.h
+    network/EtpConnection.cpp
 )
 
 find_package(Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt5 COMPONENTS Network REQUIRED)
+find_package(Qt5 COMPONENTS WebSockets REQUIRED)
+
 
 add_executable(${PROJECT_NAME}
   ${PROJECT_SOURCES}
@@ -35,5 +39,6 @@ target_link_libraries(${PROJECT_NAME}
     Qt5::Core
     Qt5::Widgets
     Qt5::Network
+    Qt5::WebSockets
     etp_common
 )

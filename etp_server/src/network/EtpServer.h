@@ -3,34 +3,37 @@
 
 #include <map>
 #include <memory>
+#include <QUuid>
 #include <QObject>
 #include <QSharedPointer>
 
 class QString;
-class QTcpServer;
-class QTcpSocket;
 class QHostAddress;
+class QWebSocketServer;
+
+namespace spdlog{
+    class logger;
+}
 
 class EtpServer:public QObject
 {
     Q_OBJECT
 private:
+    QUuid server_uid_ {};
     QString host_ {};
     int port_ {};
     QString error_str_ {};
-    QSharedPointer<QTcpServer> tcp_server_ptr_ {nullptr};
-    std::map<qintptr,QTcpSocket*> socket_map_ {};
+    QSharedPointer<QWebSocketServer> webserver_ptr_ {nullptr};
+    std::shared_ptr<spdlog::logger> logger_ptr_ {nullptr};
 
 public:
-    explicit EtpServer(const QString& host, int port,QObject* parent=nullptr);
+    explicit EtpServer(const QString& host, int port, std::shared_ptr<spdlog::logger> logger_ptr, QObject* parent=nullptr);
     virtual ~EtpServer()=default;
     bool start_listen();
     void stop_listen();
 
 
 private slots:
-    void slot_ready_read();
-    void slot_disconnected();
     void slot_new_connection();
 };
 
