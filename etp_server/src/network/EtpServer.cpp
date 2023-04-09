@@ -1,19 +1,19 @@
-#include "HttpServer.h"
+#include "EtpServer.h"
 
 #include <iostream>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QHostAddress>
 
-HttpServer::HttpServer(const QString &host, int port, QObject *parent)
+EtpServer::EtpServer(const QString &host, int port, QObject *parent)
     :QObject{parent},host_{host},port_{port}
 {
     tcp_server_ptr_.reset(new QTcpServer(this));
     QObject::connect(tcp_server_ptr_.get(), &QTcpServer::newConnection,
-                     this, &HttpServer::slot_new_connection);
+                     this, &EtpServer::slot_new_connection);
 }
 
-bool HttpServer::start_listen()
+bool EtpServer::start_listen()
 {
     const bool& ok {tcp_server_ptr_->listen(QHostAddress(host_),port_)};
     if(!ok){
@@ -23,7 +23,7 @@ bool HttpServer::start_listen()
     return ok;
 }
 
-void HttpServer::slot_ready_read()
+void EtpServer::slot_ready_read()
 {
     QTcpSocket* socket_ptr {static_cast<QTcpSocket*>(sender())};
     if(socket_ptr){
@@ -38,7 +38,7 @@ void HttpServer::slot_ready_read()
 }
 
 
-void HttpServer::slot_disconnected()
+void EtpServer::slot_disconnected()
 {
     QTcpSocket* socket_ptr {static_cast<QTcpSocket*>(sender())};
     if(socket_ptr){
@@ -53,15 +53,15 @@ void HttpServer::slot_disconnected()
     }
 }
 
-void HttpServer::slot_new_connection()
+void EtpServer::slot_new_connection()
 {
     QTcpSocket* socket_ptr {tcp_server_ptr_->nextPendingConnection()};
     const qintptr& descriptor {socket_ptr->socketDescriptor()};
 
     QObject::connect(socket_ptr,&QTcpSocket::readyRead,
-                     this,&HttpServer::slot_ready_read);
+                     this,&EtpServer::slot_ready_read);
     QObject::connect(socket_ptr,&QTcpSocket::disconnected,
-                     this,&HttpServer::slot_disconnected);
+                     this,&EtpServer::slot_disconnected);
     socket_map_.emplace(descriptor,socket_ptr);
 
 }

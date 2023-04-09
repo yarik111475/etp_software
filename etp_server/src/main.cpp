@@ -8,9 +8,9 @@
 #include <signal.h>
 #endif
 
-#include "network/HttpServer.h"
+#include "network/EtpServer.h"
 
-QSharedPointer<HttpServer> http_server_ptr_ {nullptr};
+QSharedPointer<EtpServer> etpserver_ptr_ {nullptr};
 
 int main(int argc, char *argv[])
 {
@@ -27,8 +27,8 @@ int main(int argc, char *argv[])
 #endif
 
     QCoreApplication a(argc, argv);
-    http_server_ptr_.reset(new HttpServer("localhost",8080));
-    const bool& success {http_server_ptr_->start_listen()};
+    etpserver_ptr_.reset(new EtpServer("localhost",8080));
+    const bool& success {etpserver_ptr_->start_listen()};
     if(!success){
         return EXIT_FAILURE;
     }

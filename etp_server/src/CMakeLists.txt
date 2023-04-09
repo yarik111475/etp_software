@@ -13,23 +13,27 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROJECT_SOURCES
     main.cpp
-    network/HttpServer.h
-    network/HttpServer.cpp
-    )
+    gui/MainWindow.h
+    gui/MainWindow.cpp
+    network/EtpServer.h
+    network/EtpServer.cpp
+)
 
 find_package(Qt5 COMPONENTS Core REQUIRED)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt5 COMPONENTS Network REQUIRED)
 
 add_executable(${PROJECT_NAME}
   ${PROJECT_SOURCES}
-    )
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${ETP_COMMON_INCLUDE_DIR}
-    )
+)
 
 target_link_libraries(${PROJECT_NAME}
     Qt5::Core
+    Qt5::Widgets
     Qt5::Network
     etp_common
-    )
+)

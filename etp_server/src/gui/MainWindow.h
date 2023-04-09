@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOWS_H
+#define MAINWINDOWS_H
 
 #include <QMainWindow>
 
@@ -13,4 +13,4 @@ signals:
 
 };
 
-#endif // MAINWINDOW_H
+#endif // MAINWINDOWS_H

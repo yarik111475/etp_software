@@ -11,7 +11,7 @@ class QTcpServer;
 class QTcpSocket;
 class QHostAddress;
 
-class HttpServer:public QObject
+class EtpServer:public QObject
 {
     Q_OBJECT
 private:
@@ -22,8 +22,8 @@ private:
     std::map<qintptr,QTcpSocket*> socket_map_ {};
 
 public:
-    explicit HttpServer(const QString& host, int port,QObject* parent=nullptr);
-    virtual ~HttpServer()=default;
+    explicit EtpServer(const QString& host, int port,QObject* parent=nullptr);
+    virtual ~EtpServer()=default;
     bool start_listen();
     void stop_listen();
 
