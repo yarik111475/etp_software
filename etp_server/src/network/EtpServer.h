@@ -6,10 +6,10 @@
 #include <QUuid>
 #include <QObject>
 #include <QSharedPointer>
+#include <QWebSocketServer>
 
 class QString;
 class QHostAddress;
-class QWebSocketServer;
 
 namespace spdlog{
     class logger;
@@ -27,14 +27,27 @@ private:
     std::shared_ptr<spdlog::logger> logger_ptr_ {nullptr};
 
 public:
-    explicit EtpServer(const QString& host, int port, std::shared_ptr<spdlog::logger> logger_ptr, QObject* parent=nullptr);
+    explicit EtpServer(std::shared_ptr<spdlog::logger> logger_ptr, QObject* parent=nullptr);
     virtual ~EtpServer()=default;
+
+    void init(const QString& host, int port);
     bool start_listen();
     void stop_listen();
+
+    inline QString err_str()const{
+        return error_str_;
+    }
+    inline bool is_listening()const{
+        return (webserver_ptr_ && webserver_ptr_->isListening());
+    }
 
 
 private slots:
     void slot_new_connection();
+
+signals:
+    void signal_client_connected(const QString& client_uid);
+    void signal_client_disconnected(const QString& client_uid);
 };
 
 #endif // HTTPSERVER_H

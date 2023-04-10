@@ -13,8 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROJECT_SOURCES
     main.cpp
-    gui/MainWindow.h
-    gui/MainWindow.cpp
+    gui/ServerWindow.h
+    gui/ServerWindow.cpp
     network/EtpServer.h
     network/EtpServer.cpp
     network/EtpConnection.h
@@ -41,4 +41,5 @@ target_link_libraries(${PROJECT_NAME}
     Qt5::Network
     Qt5::WebSockets
     etp_common
+    spdlog
 )

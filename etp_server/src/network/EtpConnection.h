@@ -48,7 +48,7 @@ private slots:
     void slot_disconnected();
 
 signals:
-
+    void signal_disconnected(const QString& client_uid);
 };
 
 #endif // ETPCONNECTION_H

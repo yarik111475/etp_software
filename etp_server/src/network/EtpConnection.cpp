@@ -45,7 +45,7 @@ void EtpConnection::run()
         lock.unlock();
 
         //check if flag_ is set (for quit if socket disconnected)
-        if(!flag_ || !message.isEmpty()){
+        if(!flag_ || message.isEmpty()){
             return;
         }
 
@@ -74,7 +74,10 @@ void EtpConnection::slot_text_message_received(const QString &message)
 
 void EtpConnection::slot_disconnected()
 {
+    //set flag_ to false and enququq empty message
     flag_=false;
     message_queue_.enqueue(QString{});
     cv_.notify_one();
+    //emit signal about disconnections
+    emit signal_disconnected(client_uid_.toString(QUuid::WithoutBraces));
 }
