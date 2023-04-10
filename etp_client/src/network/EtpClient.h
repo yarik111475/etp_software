@@ -3,7 +3,9 @@
 
 #include <memory>
 #include <QObject>
+#include <QSharedPointer>
 
+class QTimer;
 class QWebSocket;
 
 namespace spdlog{
@@ -14,11 +16,14 @@ class EtpClient : public QObject
 {
     Q_OBJECT
 private:
+    const int ping_interval_ {1000 * 5};
     const QString ws_prefix {"ws"}; //wss for secure connection
     std::shared_ptr<spdlog::logger> logger_ptr_ {nullptr};
-    std::shared_ptr<QWebSocket> socket_ptr_ {nullptr};
+    QSharedPointer<QTimer> pingtimer_ptr_ {nullptr};
+    QSharedPointer<QWebSocket> socket_ptr_ {nullptr};
 
 private slots:
+    void slot_pingtimeout();
     void slot_connected();
     void slot_disconnected();
     void slot_text_message_received(const QString& message);

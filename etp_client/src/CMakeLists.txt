@@ -13,8 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROJECT_SOURCES
     main.cpp
-    gui/MainWindow.h
-    gui/MainWindow.cpp
+    gui/ClientWindow.h
+    gui/ClientWindow.cpp
     network/EtpClient.h
     network/EtpClient.cpp
     )

@@ -1,5 +1,6 @@
 #include <QApplication>
-#include "gui/MainWindow.h"
+#include "gui/ClientWindow.h"
+#include "network/EtpClient.h"
 
 #if defined(Q_OS_LINUX)
 #include <signal.h>
@@ -20,7 +21,9 @@ int main(int argc, char *argv[])
 #endif
 
     QApplication app(argc,argv);
-    MainWindow main_window;
-    main_window.show();
+    EtpClient etp_client(nullptr);
+    etp_client.begin_session("127.0.0.1",2345);
+    ClientWindow client_window;
+    client_window.show();
     return app.exec();
 }

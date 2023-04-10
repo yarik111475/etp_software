@@ -35,7 +35,7 @@ void ServerWindow::init_gui()
     portspinbox_ptr_=new QSpinBox;
     portspinbox_ptr_->setRange(0,0xFFFF);
     portspinbox_ptr_->setAlignment(Qt::AlignRight);
-    portspinbox_ptr_->setValue(2324);
+    portspinbox_ptr_->setValue(2345);
     portspinbox_ptr_->setFixedWidth(50);
 
     QGridLayout* gridlayout_ptr {new QGridLayout};
@@ -77,6 +77,7 @@ void ServerWindow::init_server()
 
 ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent)
 {
+    setWindowTitle("Etp Server");
     init_logger();
     init_gui();
     init_server();
@@ -87,7 +88,7 @@ void ServerWindow::slot_start()
     if(!etpserver_ptr_){
         return;
     }
-    etpserver_ptr_->init(QHostAddress(QHostAddress::LocalHost).toString(),0);
+    etpserver_ptr_->init(QHostAddress(QHostAddress::LocalHost).toString(),2345);
     const bool& ok {etpserver_ptr_->start_listen()};
     if(!ok){
         const QString& msg {etpserver_ptr_->err_str()};
@@ -107,10 +108,12 @@ void ServerWindow::slot_stop()
 
 void ServerWindow::slot_client_connected(const QString &client_uid)
 {
-
+    const QString& msg {QString("Connected, client uid: %1").arg(client_uid)};
+    statusBar()->showMessage(msg, 2000);
 }
 
 void ServerWindow::slot_client_disconnected(const QString &client_uid)
 {
-
+    const QString& msg {QString("Disconnected, client uid: %1").arg(client_uid)};
+    statusBar()->showMessage(msg, 2000);
 }
