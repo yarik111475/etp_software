@@ -32,6 +32,7 @@ void ServerWindow::init_gui()
 
     iplineedit_ptr_=new QLineEdit;
     iplineedit_ptr_->setInputMask("000.000.000.000;0");
+
     portspinbox_ptr_=new QSpinBox;
     portspinbox_ptr_->setRange(0,0xFFFF);
     portspinbox_ptr_->setAlignment(Qt::AlignRight);
@@ -61,7 +62,7 @@ void ServerWindow::init_gui()
     centralwidget_ptr->setLayout(mainvboxlayout_ptr);
     setCentralWidget(centralwidget_ptr);
 
-    statusBar()->showMessage(QObject::tr("Ready..."));
+    statusBar()->showMessage(QObject::tr("Ready..."), 3000);
 }
 
 void ServerWindow::init_server()
@@ -92,28 +93,28 @@ void ServerWindow::slot_start()
     const bool& ok {etpserver_ptr_->start_listen()};
     if(!ok){
         const QString& msg {etpserver_ptr_->err_str()};
-        statusBar()->showMessage(msg);
+        statusBar()->showMessage(msg, 3000);
         return;
     }
-    statusBar()->showMessage(QObject::tr("Listening..."));
+    statusBar()->showMessage(QObject::tr("Listening..."), 3000);
 }
 
 void ServerWindow::slot_stop()
 {
     if(etpserver_ptr_ && etpserver_ptr_->is_listening()){
         etpserver_ptr_->stop_listen();
-        statusBar()->showMessage(QObject::tr("Ready..."));
+        statusBar()->showMessage(QObject::tr("Ready..."), 3000);
     }
 }
 
 void ServerWindow::slot_client_connected(const QString &client_uid)
 {
     const QString& msg {QString("Connected, client uid: %1").arg(client_uid)};
-    statusBar()->showMessage(msg, 2000);
+    statusBar()->showMessage(msg, 3000);
 }
 
 void ServerWindow::slot_client_disconnected(const QString &client_uid)
 {
     const QString& msg {QString("Disconnected, client uid: %1").arg(client_uid)};
-    statusBar()->showMessage(msg, 2000);
+    statusBar()->showMessage(msg, 3000);
 }

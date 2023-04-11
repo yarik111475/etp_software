@@ -17,7 +17,7 @@ set(PROJECT_SOURCES
     gui/ClientWindow.cpp
     network/EtpClient.h
     network/EtpClient.cpp
-    )
+)
 
 find_package(Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt5 COMPONENTS Network REQUIRED)
@@ -26,11 +26,11 @@ find_package(Qt5 COMPONENTS WebSockets REQUIRED)
 
 add_executable(${PROJECT_NAME}
   ${PROJECT_SOURCES}
-    )
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${ETP_COMMON_INCLUDE_DIR}
-    )
+)
 
 target_link_libraries(${PROJECT_NAME}
     Qt5::Core
@@ -39,4 +39,8 @@ target_link_libraries(${PROJECT_NAME}
     Qt5::WebSockets
     etp_common
     spdlog
-    )
+)
+
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

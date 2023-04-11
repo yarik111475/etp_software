@@ -20,6 +20,10 @@ void EtpServer::init(const QString &host, int port)
 
 bool EtpServer::start_listen()
 {
+    if(webserver_ptr_ && webserver_ptr_->isListening()){
+        error_str_=QObject::tr("Server is listening now...");
+        return false;
+    }
     const bool& ok {webserver_ptr_->listen(QHostAddress(host_),port_)};
     if(!ok){
         error_str_=webserver_ptr_->errorString();
