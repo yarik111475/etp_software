@@ -27,9 +27,8 @@ public:
         JSON
     };
 
-    Message();
+    Message()=default;
     virtual ~Message()=default;
-    virtual Type messageType()=0;
     virtual QString to_xml()=0;
     virtual QString to_json()=0;
 };

@@ -11,10 +11,20 @@ class ProtocolException:public Message
 public:
     ProtocolException()=default;
     virtual ~ProtocolException()=default;
-    virtual Type messageType()override;
     virtual QString to_xml()override;
     virtual QString to_json()override;
 
+    //base part
+    const QString type_ {"record"};
+    const QString namespace_ {"Energistics.Etp.v12.Protocol.Core"};
+    const QString name_ {"ProtocolException"};
+    const int protocol_ {0};
+    const int messageType_ {1000};
+    const QString senderRole_ {"*"};
+    const QString protocolRoles_ {"client, server"};
+    const bool multipartFlag_ {true};
+
+    //fields []
     //TODO correct type later
     QVariant error_ {};
 

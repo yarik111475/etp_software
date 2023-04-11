@@ -13,10 +13,20 @@ class OpenSession:public Message
 public:
     OpenSession()=default;
     virtual ~OpenSession()=default;
-    virtual Type messageType()override;
     virtual QString to_xml()override;
     virtual QString to_json()override;
 
+    //base part
+    const QString type_ {"record"};
+    const QString namespace_ {"Energistics.Etp.v12.Protocol.Core"};
+    const QString name_ {"OpenSession"};
+    const int protocol_ {0};
+    const int messageType_ {2};
+    const QString senderRole_ {"server"};
+    const QString protocolRoles_ {"client, server"};
+    const bool multipartFlag_ {false};
+
+    //fields []
     QString applicationName_ {};
     QString applicationVersion_ {};
     QUuid serverInstanceId_ {};

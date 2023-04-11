@@ -1,9 +1,8 @@
 #include "Ping.h"
 
-Message::Type Ping::messageType()
-{
-    return Message::PING;
-}
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 QString Ping::to_xml()
 {
@@ -12,5 +11,15 @@ QString Ping::to_xml()
 
 QString Ping::to_json()
 {
-
+    QJsonObject json_object {
+        {"type", type_},
+        {"namespace",namespace_},
+        {"name", name_},
+        {"protocol", protocol_},
+        {"messageType", messageType_},
+        {"senderRole", senderRole_},
+        {"protocolRoles", protocolRoles_},
+        {"multipartFlag", multipartFlag_}
+    };
+    return QJsonDocument(json_object).toJson();
 }
