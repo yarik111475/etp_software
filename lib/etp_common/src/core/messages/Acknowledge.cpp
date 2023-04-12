@@ -4,6 +4,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+Acknowledge::Acknowledge(const QJsonObject &params)
+    :Message{params}
+{
+
+}
+
 QString Acknowledge::to_xml()
 {
 

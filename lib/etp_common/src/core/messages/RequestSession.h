@@ -1,6 +1,7 @@
 #ifndef REQUESTSESSION_H
 #define REQUESTSESSION_H
 
+#include <map>
 #include <QMap>
 #include <QUuid>
 #include <QString>
@@ -11,7 +12,7 @@
 class RequestSession:public Message
 {
 public:
-    RequestSession()=default;
+    explicit RequestSession(const QJsonObject& params);
     virtual ~RequestSession()=default;;
     virtual QString to_xml()override;
     virtual QString to_json()override;
@@ -38,11 +39,11 @@ public:
 
     QString supportedCompression_ {};
     QStringList supportedFormats_ {};
-    long currentDateTime_ {};
-    long earliestRetainedChangeTime_ {};
+    int currentDateTime_ {};
+    int earliestRetainedChangeTime_ {};
 
-    //TODO corret K, V later
-    QMap<QString,QVariant> endpointCapabilities_ {};
+    //TODO correct K, V later
+    std::map<QString,QVariant> endpointCapabilities_ {};
 
     bool serverAuthorizationRequired_ {};
 };

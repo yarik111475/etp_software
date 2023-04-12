@@ -7,7 +7,7 @@
 class CloseSession:public Message
 {
 public:
-    CloseSession()=default;
+    explicit CloseSession(const QJsonObject& params);
     virtual ~CloseSession()=default;
     virtual QString to_xml()override;
     virtual QString to_json()override;

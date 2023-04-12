@@ -4,6 +4,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+Authorize::Authorize(const QJsonObject &params)
+    :Message{params}
+{
+
+}
+
 QString Authorize::to_xml()
 {
 

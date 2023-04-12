@@ -1,6 +1,7 @@
 #ifndef OPENSESSION_H
 #define OPENSESSION_H
 
+#include <map>
 #include <QMap>
 #include <QUuid>
 #include <QString>
@@ -11,7 +12,7 @@
 class OpenSession:public Message
 {
 public:
-    OpenSession()=default;
+    explicit OpenSession(const QJsonObject& params);
     virtual ~OpenSession()=default;
     virtual QString to_xml()override;
     virtual QString to_json()override;
@@ -29,6 +30,7 @@ public:
     //fields []
     QString applicationName_ {};
     QString applicationVersion_ {};
+    //TODO correct later
     QUuid serverInstanceId_ {};
 
     //TODO correct T later
@@ -37,12 +39,12 @@ public:
 
     QString supportedCompression_ {};
     QStringList supportedFormats_ {};
-    long currentDateTime_ {};
-    long earliestRetainedChangeTime_ {};
+    int currentDateTime_ {};
+    int earliestRetainedChangeTime_ {};
     QUuid sessionId_ {};
 
     //TODO corret K, V later
-    QMap<QString,QVariant> endpointCapabilities_ {};
+    std::map<QString,QVariant> endpointCapabilities_ {};
 };
 
 #endif // OPENSESSION_H

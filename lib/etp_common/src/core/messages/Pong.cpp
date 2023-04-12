@@ -4,6 +4,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+Pong::Pong(const QJsonObject &params)
+    :Message{params}
+{
+
+}
+
 QString Pong::to_xml()
 {
 

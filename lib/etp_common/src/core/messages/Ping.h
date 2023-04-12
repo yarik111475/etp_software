@@ -6,7 +6,7 @@
 class Ping:public Message
 {
 public:
-    Ping()=default;
+    explicit Ping(const QJsonObject& params);
     virtual ~Ping()=default;
     virtual QString to_xml()override;
     virtual QString to_json()override;

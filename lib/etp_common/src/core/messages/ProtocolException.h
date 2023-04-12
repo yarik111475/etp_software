@@ -9,7 +9,7 @@
 class ProtocolException:public Message
 {
 public:
-    ProtocolException()=default;
+    explicit ProtocolException(const QJsonObject& params);
     virtual ~ProtocolException()=default;
     virtual QString to_xml()override;
     virtual QString to_json()override;

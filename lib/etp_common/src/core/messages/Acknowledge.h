@@ -6,7 +6,7 @@
 class Acknowledge:public Message
 {
 public:
-    Acknowledge()=default;
+    explicit Acknowledge(const QJsonObject& params);
     virtual ~Acknowledge()=default;
     virtual QString to_xml()override;
     virtual QString to_json()override;

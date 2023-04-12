@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROJECT_SOURCES
+    core/share/Enums.h
     core/messages/Message.h
     core/messages/Message.cpp
     core/messages/Ping.h
@@ -33,8 +34,13 @@ set(PROJECT_SOURCES
     core/messages/AuthorizeResponse.h
     core/messages/AuthorizeResponse.cpp
 
-    core/factories/MessageFactory.h
-    core/factories/MessageFactory.cpp
+    #core/factories/MessageFactory.h
+    #core/factories/MessageFactory.cpp
+
+    core/helpers/MessageParser.h
+    core/helpers/MessageParser.cpp
+    core/helpers/MessageGenerator.h
+    core/helpers/MessageGenerator.cpp
 )
 
 find_package(Qt5 COMPONENTS Core REQUIRED)

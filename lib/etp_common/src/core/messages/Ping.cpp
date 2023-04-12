@@ -4,6 +4,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+Ping::Ping(const QJsonObject &params)
+    :Message{params}
+{
+
+}
+
 QString Ping::to_xml()
 {
 

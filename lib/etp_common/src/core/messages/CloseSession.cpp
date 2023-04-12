@@ -4,6 +4,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+CloseSession::CloseSession(const QJsonObject &params)
+    :Message{params}
+{
+
+}
+
 QString CloseSession::to_xml()
 {
 

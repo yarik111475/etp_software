@@ -4,6 +4,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+ProtocolException::ProtocolException(const QJsonObject &params)
+    :Message{params}
+{
+
+}
+
 QString ProtocolException::to_xml()
 {
 

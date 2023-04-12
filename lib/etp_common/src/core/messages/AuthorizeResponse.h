@@ -8,7 +8,7 @@
 class AuthorizeResponse:public Message
 {
 public:
-    AuthorizeResponse()=default;
+    explicit AuthorizeResponse(const QJsonObject& params);
     virtual ~AuthorizeResponse()=default;
     virtual QString to_xml()override;
     virtual QString to_json()override;

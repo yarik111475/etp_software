@@ -6,7 +6,7 @@
 class Pong:public Message
 {
 public:
-    Pong()=default;
+    explicit Pong(const QJsonObject& params);
     virtual ~Pong()=default;
     virtual QString to_xml()override;
     virtual QString to_json()override;

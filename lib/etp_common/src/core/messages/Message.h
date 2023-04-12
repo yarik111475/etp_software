@@ -2,32 +2,15 @@
 #define MESSAGE_H
 
 #include <QString>
+#include <QJsonObject>
 
 class Message
 {
-private:
-    int messageType_ {};
+protected:
+    QJsonObject params_;
+
 public:
-    //message type
-    enum Type{
-        PING,
-        PONG,
-        AUTHORIZE,
-        ACKNOWLEDGE,
-        OPEN_SESSION,
-        CLOSE_SESSION,
-        REQUEST_SESSION,
-        AUTHORISE_RESPONSE,
-        PROTOCOL_EXCEPTION
-    };
-
-    //message format
-    enum Format{
-        XML,
-        JSON
-    };
-
-    Message()=default;
+    explicit Message(const QJsonObject& params);
     virtual ~Message()=default;
     virtual QString to_xml()=0;
     virtual QString to_json()=0;
