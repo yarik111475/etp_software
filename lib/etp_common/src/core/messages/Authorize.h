@@ -1,7 +1,9 @@
 #ifndef AUTHORIZE_H
 #define AUTHORIZE_H
 
+#include <map>
 #include <QString>
+#include <QVariant>
 #include "Message.h"
 
 class Authorize:public Message
@@ -24,7 +26,7 @@ public:
 
     //fields []
     QString authorization_ {};
-    QString supplementalAuthorization_ {};
+    std::map<QString,QVariant> supplementalAuthorization_ {};
 };
 
 #endif // AUTHORIZE_H

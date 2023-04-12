@@ -27,5 +27,20 @@ QString Authorize::to_json()
         {"protocolRoles", protocolRoles_},
         {"multipartFlag", multipartFlag_}
     };
+
+    //message part
+    QJsonArray fields {
+        QJsonObject {{"authorization",authorization_}}
+    };
+
+    //insert supplementalAuthorization
+    QJsonArray supplemental_authorization {};
+    std::transform(supplementalAuthorization_.begin(),supplementalAuthorization_.end(),std::back_inserter(supplemental_authorization),[](const std::pair<QString,QVariant>& pair){
+        return QJsonObject {{pair.first,pair.second.toString()}};
+    });
+    fields.append(QJsonObject{{"supplementalAuthorization",supplemental_authorization}});
+
+    //insert message part into base part
+    json_object.insert("fields", fields);
     return QJsonDocument(json_object).toJson();
 }

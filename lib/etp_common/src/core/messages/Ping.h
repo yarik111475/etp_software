@@ -22,7 +22,7 @@ public:
     const bool multipartFlag_ {false};
 
     //fields []
-    long currentDateTime_ {};
+    int currentDateTime_ {};
 };
 
 #endif // PING_H

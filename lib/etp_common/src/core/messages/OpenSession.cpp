@@ -70,7 +70,7 @@ QString OpenSession::to_json()
     //insert endpointCapabilities
     QJsonArray endpoint_capabilities {};
     std::transform(endpointCapabilities_.begin(),endpointCapabilities_.end(),std::back_inserter(endpoint_capabilities),[](const std::pair<QString,QVariant>& pair){
-        return pair.second.toString();
+        return QJsonObject {{pair.first,pair.second.toString()}};
     });
     fields.append(QJsonObject{{"endpointCapabilities",endpoint_capabilities}});
 

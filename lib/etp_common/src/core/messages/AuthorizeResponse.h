@@ -1,6 +1,7 @@
 #ifndef AUTHORIZERESPONSE_H
 #define AUTHORIZERESPONSE_H
 
+#include <vector>
 #include <QVector>
 #include <QString>
 #include "Message.h"
@@ -25,7 +26,7 @@ public:
 
     //fields []
     bool success_ {};
-    QVector<QString> challenges_ {};
+    std::vector<QString> challenges_ {};
 };
 
 #endif // AUTHORIZERESPONSE_H

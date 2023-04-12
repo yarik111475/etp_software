@@ -2,6 +2,7 @@
 #define REQUESTSESSION_H
 
 #include <map>
+#include <vector>
 #include <QMap>
 #include <QUuid>
 #include <QString>
@@ -34,11 +35,11 @@ public:
     QUuid clientInstanceId_ {};
 
     //TODO correct T later
-    QVector<QVariant> requestedProtocols_ {};
-    QVector<QVariant> supportedDataObjects_ {};
+    std::vector<QVariant> requestedProtocols_ {};
+    std::vector<QVariant> supportedDataObjects_ {};
 
     QString supportedCompression_ {};
-    QStringList supportedFormats_ {};
+    std::vector<QString> supportedFormats_ {};
     int currentDateTime_ {};
     int earliestRetainedChangeTime_ {};
 
